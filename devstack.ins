@@ -1,0 +1,19 @@
+sudo apt-get install -y git sudo
+
+sudo passwd root
+
+useradd -U -G sudo -s /bin/bash -m stack
+echo "stack ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+passwd stack
+
+su - stack
+cd
+git clone -b stable/juno git://github.com/openstack-dev/devstack.git
+
+git clone git://github.com/Michaell-Jeon/openstack_vm.git
+
+cp localrc.neutron ./devstack/localrc
+cd ./devstack
+./stack.sh
+
+
