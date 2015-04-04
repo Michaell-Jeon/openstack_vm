@@ -1,0 +1,42 @@
+# default
+HOST_IP=192.168.56.101
+ 
+# network
+FLAT_INTERFACE=eth0
+FIXED_RANGE=10.0.2.0/20
+#NETWORK_GATEWAY=10.0.2.1
+FIXED_NETWORK_SIZE=256
+FLOATING_RANGE=192.168.0.1/24
+PUBLIC_NETWORK_GATEWAY=192.168.0.100
+Q_FLOATING_ALLOCATION_POOL=start=192.168.0.200,end=192.168.0.250
+#EXT_GW_IP=192.168.0.1
+ 
+# vnc
+VNCSERVER_LISTEN=0.0.0.0
+VNCSERVER_PROXYCLIENT_ADDRESS=$HOST_IP
+ 
+ 
+# neutron - networking service
+DISABLED_SERVICES=n-net
+ENABLED_SERVICES+=,q-svc,q-agt,q-dhcp,q-l3,q-meta,q-metering,neutron
+ 
+# neutron - load balancing
+ENABLED_SERVICES+=,q-lbaas
+ 
+
+# logs
+DEST=/opt/stack
+LOGFILE=$DEST/logs/stack.sh.log
+SCREEN_LOGDIR=$DEST/logs/screen
+ 
+# system password
+ADMIN_PASSWORD=openstack
+MYSQL_PASSWORD=openstack
+RABBIT_PASSWORD=openstack
+SERVICE_PASSWORD=openstack
+SERVICE_TOKEN=openstackservicetoken
+ 
+# cinder
+VOLUME_GROUP="cinder-volume"
+VOLUME_NAME_PREFIX="volume-"
+
