@@ -1,13 +1,20 @@
-sudo apt-get install -y git sudo
+sudo apt-get install node -y
+sudo apt-get install npm -y
+sudo npm install -g locally
+locally
 
 sudo passwd root
 
-useradd -U -G sudo -s /bin/bash -m stack
-echo "stack ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+adduser stack
 passwd stack
 
+apt-get install -y || yum install -y sudo
+echo "stack ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 su - stack
 cd
+
+apt-get install git -y || yum install -y git
+
 git clone -b stable/juno git://github.com/openstack-dev/devstack.git
 
 git clone git://github.com/Michaell-Jeon/openstack_vm.git
